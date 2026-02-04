@@ -284,11 +284,12 @@ class CardStreamController {
 
     const cardImages = [
       "assets/e30-pixelart.png",
-      "assets/hoodie-e30-front.png",
-      "assets/crew-front.jpg",
-      "assets/e30m3-soccer-front.jpg",
+      "assets/hood-blue.png",
+      "assets/new-logo-crew-front.png",
+      "assets/soccer-front.png",
+      "assets/rocket-front.png",
       "assets/baseball-raglan-front.png",
-      "assets/e30m3-Tee2-front.jpg",
+      "assets/teetransparent-front.png",
       "assets/DYOR-logo-e30-colors.png"
     ];
 
@@ -340,6 +341,10 @@ class CardStreamController {
       const currentImage = cardImage.src;
       if (currentImage.includes("baseball-raglan-front")) {
         window.open("https://www.etsy.com/listing/4450632215/dyor-apparel-e30m3-contrast-raglan?click_key=6d2792227b429ec188a694246a6b0b2d5ad310a5%3A4450632215&click_sum=a8590e2a&ref=shop_home_active_2&frs=1", "_blank");
+        return;
+      }
+      if (currentImage.includes("new-logo-crew-front")) {
+        window.open("https://www.etsy.com/listing/4450633664/essential-heavyweight-crewneck?ls=r&ref=items-pagination-3&frs=1&content_source=a3e96c1fd0651214b13c2339c6fed712%253ALTaca2c9d98fb4f9b92d3a4f17c52125f37c80e31b&logging_key=a3e96c1fd0651214b13c2339c6fed712%3ALTaca2c9d98fb4f9b92d3a4f17c52125f37c80e31b", "_blank");
         return;
       }
 
