@@ -283,13 +283,13 @@ class CardStreamController {
     normalCard.className = "card card-normal";
 
     const cardImages = [
-      "assets/blue-tee-hang.png",
-      "assets/e30-comicart.png",
       "assets/e30-pixelart.png",
-      "assets/rocket-jacket-backphoto.png",
-      "assets/soccer-jersey-hang.png",
-      "assets/about-carphoto.png",
-      "assets/contact-green.png"
+      "assets/hoodie-e30-front.png",
+      "assets/crew-front.jpg",
+      "assets/e30m3-soccer-front.jpg",
+      "assets/baseball-raglan-front.png",
+      "assets/e30m3-Tee2-front.jpg",
+      "assets/DYOR-logo-e30-colors.png"
     ];
 
     const cardImage = document.createElement("img");
@@ -337,19 +337,18 @@ class CardStreamController {
 
     // Add click event for content switching
     wrapper.addEventListener('click', () => {
+      const currentImage = cardImage.src;
+      if (currentImage.includes("baseball-raglan-front")) {
+        window.open("https://www.etsy.com/listing/4450632215/dyor-apparel-e30m3-contrast-raglan?click_key=6d2792227b429ec188a694246a6b0b2d5ad310a5%3A4450632215&click_sum=a8590e2a&ref=shop_home_active_2&frs=1", "_blank");
+        return;
+      }
+
       const cardTitle = document.getElementById('card-title');
       // Set text to "CARD [Number]"
       cardTitle.textContent = `CARD ${index + 1}`;
 
       // Optional: Add a subtle animation to the logo or text on click
-      const logo = document.querySelector('.main-logo');
-      if (logo) {
-        logo.animate([
-          { transform: 'scale(1)' },
-          { transform: 'scale(1.02)' },
-          { transform: 'scale(1)' }
-        ], { duration: 300 });
-      }
+      /* Logo animation removed as logo is gone */
     });
 
     return wrapper;
