@@ -10,7 +10,7 @@ class CardStreamController {
     this.cardLine = document.getElementById("cardLine");
 
     this.position = -400; // Start cards off-screen to the left
-    this.velocity = 120;
+    this.velocity = 480; // 120 * 4
     this.direction = 1; // Changed from -1 to 1 for left-to-right movement
     this.isAnimating = true;
     this.isDragging = false;
@@ -19,7 +19,7 @@ class CardStreamController {
     this.lastMouseX = 0;
     this.mouseVelocity = 0;
     this.friction = 0.95;
-    this.minVelocity = 30;
+    this.minVelocity = 120; // 30 * 4
 
     this.containerWidth = 0;
     this.cardLineWidth = 0;
@@ -110,7 +110,7 @@ class CardStreamController {
       this.velocity = Math.abs(this.mouseVelocity);
       this.direction = this.mouseVelocity > 0 ? 1 : -1;
     } else {
-      this.velocity = 120;
+      this.velocity = 480; // 120 * 4
     }
 
     this.isAnimating = true;
