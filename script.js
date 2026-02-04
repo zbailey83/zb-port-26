@@ -38,8 +38,8 @@ class CardStreamController {
 
   calculateDimensions() {
     this.containerWidth = this.container.offsetWidth;
-    const cardWidth = 400;
-    const cardGap = 60;
+    const cardWidth = 200;
+    const cardGap = 30;
     const cardCount = this.cardLine.children.length;
     this.cardLineWidth = (cardWidth + cardGap) * cardCount;
   }
@@ -299,16 +299,16 @@ class CardStreamController {
 
     cardImage.onerror = () => {
       const canvas = document.createElement("canvas");
-      canvas.width = 400;
-      canvas.height = 250;
+      canvas.width = 200;
+      canvas.height = 125;
       const ctx = canvas.getContext("2d");
 
-      const gradient = ctx.createLinearGradient(0, 0, 400, 250);
+      const gradient = ctx.createLinearGradient(0, 0, 200, 125);
       gradient.addColorStop(0, "#667eea");
       gradient.addColorStop(1, "#764ba2");
 
       ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, 400, 250);
+      ctx.fillRect(0, 0, 200, 125);
 
       cardImage.src = canvas.toDataURL();
     };
@@ -326,7 +326,7 @@ class CardStreamController {
       height,
       fontSize,
       lineHeight
-    } = this.calculateCodeDimensions(400, 250);
+    } = this.calculateCodeDimensions(200, 125);
     asciiContent.style.fontSize = fontSize + "px";
     asciiContent.style.lineHeight = lineHeight + "px";
     asciiContent.textContent = this.generateCode(width, height);
@@ -334,6 +334,23 @@ class CardStreamController {
     asciiCard.appendChild(asciiContent);
     wrapper.appendChild(normalCard);
     wrapper.appendChild(asciiCard);
+
+    // Add click event for content switching
+    wrapper.addEventListener('click', () => {
+      const cardTitle = document.getElementById('card-title');
+      // Set text to "CARD [Number]"
+      cardTitle.textContent = `CARD ${index + 1}`;
+
+      // Optional: Add a subtle animation to the logo or text on click
+      const logo = document.querySelector('.main-logo');
+      if (logo) {
+        logo.animate([
+          { transform: 'scale(1)' },
+          { transform: 'scale(1.02)' },
+          { transform: 'scale(1)' }
+        ], { duration: 300 });
+      }
+    });
 
     return wrapper;
   }
@@ -399,7 +416,7 @@ class CardStreamController {
   updateAsciiContent() {
     document.querySelectorAll(".ascii-content").forEach((content) => {
       if (Math.random() < 0.15) {
-        const { width, height } = this.calculateCodeDimensions(400, 250);
+        const { width, height } = this.calculateCodeDimensions(200, 125);
         content.textContent = this.generateCode(width, height);
       }
     });
@@ -447,8 +464,8 @@ class ParticleSystem {
     this.camera = new THREE.OrthographicCamera(
       -window.innerWidth / 2,
       window.innerWidth / 2,
-      125,
-      -125,
+      70,
+      -70,
       1,
       1000
     );
@@ -459,7 +476,7 @@ class ParticleSystem {
       alpha: true,
       antialias: true
     });
-    this.renderer.setSize(window.innerWidth, 250);
+    this.renderer.setSize(window.innerWidth, 140);
     this.renderer.setClearColor(0x000000, 0);
 
     this.createParticles();
@@ -603,7 +620,7 @@ class ParticleSystem {
     this.camera.right = window.innerWidth / 2;
     this.camera.updateProjectionMatrix();
 
-    this.renderer.setSize(window.innerWidth, 250);
+    this.renderer.setSize(window.innerWidth, 140);
   }
 
   destroy() {
@@ -627,7 +644,7 @@ class ParticleScanner {
     this.animationId = null;
 
     this.w = window.innerWidth;
-    this.h = 300;
+    this.h = 160;
     this.particles = [];
     this.count = 0;
     this.maxParticles = 800;

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Card Scanner Hero Section</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 
@@ -13,7 +15,14 @@
     <img src="assets/DYOR-logo-e30-colors.png" alt="DYOR Logo" />
   </div>
 
-  <div class="container">
+  <main id="main-content">
+    <div class="main-display">
+      <img src="assets/DYOR-logo-e30-colors.png" alt="DYOR Logo" class="main-logo">
+      <h1 id="card-title" class="dynamic-text"></h1>
+    </div>
+  </main>
+
+  <div class="container footer-nav">
     <canvas id="particleCanvas"></canvas>
     <canvas id="scannerCanvas"></canvas>
 
@@ -27,4 +36,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
