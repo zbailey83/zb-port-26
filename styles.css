@@ -86,6 +86,7 @@ body {
   margin-bottom: 1rem;
   background: linear-gradient(45deg, #fff, #888);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -113,6 +114,29 @@ body {
   line-height: 1;
   text-transform: uppercase;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .main-display {
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 2rem;
+  }
+
+  .main-logo {
+    max-width: 250px;
+  }
+
+  .dynamic-text {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  #main-content {
+    align-items: flex-start;
+    /* Align closer to top on mobile */
+    padding-top: 4rem;
+  }
 }
 
 .card-stream {
